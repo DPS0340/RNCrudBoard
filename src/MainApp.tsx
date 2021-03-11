@@ -7,6 +7,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 
 import {
   Header,
@@ -20,7 +21,7 @@ declare const global: {HermesInternal: null | {}};
 
 const MainApp: React.FC = (): ReactElement => {
   return (
-    <>
+    <PaperProvider theme={DefaultTheme}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -62,7 +63,7 @@ const MainApp: React.FC = (): ReactElement => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </PaperProvider>
   );
 };
 
