@@ -10,10 +10,10 @@
 
 import React, {ReactElement} from 'react';
 
-import MainApp from './src/MainApp';
+import Main from './src/Main';
 
 const App: React.FC = (): ReactElement => {
-  return <MainApp />;
+  return <Main />;
 };
 
 export default App;
