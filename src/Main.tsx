@@ -1,33 +1,46 @@
 import React, {ReactElement} from 'react';
 import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
 import {
+  Button,
   Colors,
   DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
+import {NativeRouter, Route, Link, Switch} from 'react-router-native';
+import LoginPage from './LoginPage';
+import IndexPage from './IndexPage';
 
 declare const global: {HermesInternal: null | {}};
 
 const Main: React.FC = (): ReactElement => {
   return (
-    <PaperProvider theme={DefaultTheme}>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={styles.container}>
-        <View style={styles.body}>
-          <Text style={styles.helloText}>Hello, World~</Text>
-        </View>
-      </SafeAreaView>
-    </PaperProvider>
+    <NativeRouter>
+      <PaperProvider theme={DefaultTheme}>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView style={styles.container}>
+          <View style={styles.body}>
+            <View>
+              <Switch>
+                <Route exact path="/" component={IndexPage} />
+                <Route exact path="/login" component={LoginPage} />
+              </Switch>
+            </View>
+          </View>
+        </SafeAreaView>
+      </PaperProvider>
+    </NativeRouter>
   );
 };
-
-export interface IStyles {
+interface IStyles {
   body: Object;
   helloText: Object;
   container: Object;
+  link: Object;
+  linkText: Object;
+  nav: Object;
 }
 
-const styles: IStyles = StyleSheet.create({
+export const styles: IStyles = StyleSheet.create({
   body: {},
   helloText: {
     color: Colors.black,
@@ -40,5 +53,14 @@ const styles: IStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  link: {
+    fontSize: 24,
+    backgroundColor: Colors.lightBlue600,
+    paddingVertical: 20,
+  },
+  linkText: {
+    color: Colors.white,
+  },
+  nav: {},
 });
 export default Main;
