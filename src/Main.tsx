@@ -1,12 +1,11 @@
 import React, {ReactElement} from 'react';
-import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
+import {SafeAreaView, StyleSheet, View, StatusBar} from 'react-native';
 import {
-  Button,
   Colors,
   DefaultTheme,
   Provider as PaperProvider,
 } from 'react-native-paper';
-import {NativeRouter, Route, Link, Switch} from 'react-router-native';
+import {NativeRouter, Route, Switch} from 'react-router-native';
 import LoginPage from './LoginPage';
 import IndexPage from './IndexPage';
 
